@@ -1,0 +1,37 @@
+window:
+  padding:
+    x: 10
+    y: 10
+  class:
+    instance: Alacritty
+    general: Alacritty
+  opacity: 1
+
+scrolling:
+  history: 10000
+  multiplier: 3
+
+font:
+  normal:
+    family: Hack Nerd Font
+    style:  Regular
+  bold:
+    family: Hack Nerd Font
+    style:  Bold
+  italic:
+    family: Hack Nerd Font
+    style:  Italic
+  bold_italic:
+    family: Hack Nerd Font
+    style: Bold Italic
+  size: 7
+draw_bold_text_with_bright_colors: true
+
+import:
+  - ~/.config/alacritty/catppuccin-mocha.yml
+
+selection:
+  save_to_clipboard: false
+
+key_bindings:
+  - { key: Return, mods: Super|Shift, action: SpawnNewInstance }
