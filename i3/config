@@ -1,0 +1,104 @@
+###---wm bullshit---###
+hide_edge_borders both
+default_border pixel 0
+gaps inner 15
+gaps outer 15
+set $mod Mod4
+set $term alacritty
+set $browser firefox
+###---endofbasdefs---###
+
+###---ex.script startup shit---###
+#Wifi applet
+exec --no-startup-id nm-applet
+#Discord
+exec --no-startup-id discord
+#Mount other drives
+exec --no-startup-id sudo mount -a
+#Start picom
+exec --no-startup-id picom
+#Launch PolyB
+exec_always --no-startup-id ~/.config/polybar/launch.sh
+#Feh config
+exec --no-startup-id feh --bg-fill ~/.wallpapers/japanesenasa.jpg
+###---endofexscriptstartups---###
+
+###---dd/sp window stuff---###
+bindsym $mod+Return exec alacritty
+
+bindsym $mod+r restart 
+
+bindsym $mod+d exec rofi -show drun
+
+bindsym $mod+a floating toggle
+bindsym $mod+f fullscreen
+bindsym $mod+Space focus mode_toggle
+###---endofddwindowstuff---###
+
+###---keybindings---###
+bindsym $mod+q kill
+
+bindsym $mod+w exec --no-startup-id firefox
+bindsym $mod+t exec --no-startup-id thunar
+
+bindsym $mod+h move left 30
+bindsym $mod+j move down 30
+bindsym $mod+k move up 30
+bindsym $mod+l move right 30
+
+bindsym $mod+s gaps inner current plus 5
+bindsym $mod+Shift+s gaps inner current minus 5
+
+bindsym $mod+g gaps outer current plus 5
+bindsym $mod+Shift+g gaps outer current minus 5
+
+bindsym $mod+Shift+d gaps inner current set 0; gaps outer current set 0
+
+bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
+bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
+
+bindsym $mod+Shift+e exec --no-startup-id i3lock
+bindsym $mod+Shift+l exit
+bindsym $mod+Shift+m exec --no-startup-id i3lock && systemctl suspend
+###---endofkebind---###
+
+###---workspace---###
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+
+set $ws1 " "
+set $ws2 "󰙯 "
+set $ws3 " "
+set $ws4 " "
+set $ws5 " "
+set $ws6 " "
+set $ws7 "󰗹 "
+set $ws8 "󰡶 "
+###---eow-space---###
+
+###---screenshot---###
+
+bindsym Print exec --no-startup-id maim "/home/$USER/Pictures/$(date).png"
+bindsym $mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) "/home/$USER/Pictures/$(date).png"
+bindsym Shift+Print exec --no-startup-id maim --select "/home/$USER/Pictures/$(date).png"
+
+bindsym Ctrl+Print exec --no-startup-id maim | xclip -selection clipboard -t image/png
+bindsym Ctrl+$mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
+bindsym Ctrl+Shift+Print exec --no-startup-id maim --select | xclip -selection clipboard -t image/png
+
+###---endofsshot---###
