@@ -1,0 +1,28 @@
+configuration {
+	display-drun: "Applications";
+	display-window: "Windows";
+	drun-display-format: "{icon} {name}";
+	font: "Terminess Nerd Font Regular 10";
+	show-icons: true;
+	icon-theme: "Catppuccin-Mocha";
+}
+
+@theme "/dev/null"
+
+* {
+	bg: #293136;
+	bg-alt: #333c43;
+
+	fg: #d3c5aa;
+	fg-alt: #d3c6ee;
+
+	background-color: @bg-alt;
+
+	border: 5;
+	margin: 0;
+	padding: 0;
+	spacing: 0;
+	
+	text-color: @fg;	
+}
+
